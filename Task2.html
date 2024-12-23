@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sum of string</title>
+    <script>
+      function sumOfString(String) {
+        const numbers = String.split(",")
+          .map((num) => parseFloat(num.trim()))
+          .filter((num) => !isNaN(num));
+
+        const sum = numbers.reduce((acc, num) => acc + num, 0);
+
+        return sum;
+      }
+
+      function calc_sum() {
+        const input = document.getElementById("String").value;
+        const output = sumOfString(input);
+
+        document.getElementById("output").innerText = "Sum is " + output;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Sum of String</h1>
+    <label for="String">Enter numbers (separated by commas):</label>
+    <input type="text" id="String" placeholder="Enter the number " />
+
+    <button onclick="calc_sum()">Calculate Sum</button>
+
+    <p id="output">OUTPUT</p>
+  </body>
+</html>

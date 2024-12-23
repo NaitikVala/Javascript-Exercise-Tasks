@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sum of number in string</title>
+    <script>
+      function sumNumber(String) {
+        const number = String.match(/-?\d+(\.\d+)?/g); // using regex
+
+        if (!number) {
+          return 0;
+        }
+        return number.reduce((sum, num) => sum + parseFloat(num), 0);
+      }
+      function handleString() {
+        const input = document.getElementById("String").value;
+        const output = sumNumber(input);
+
+        document.getElementById("output").innerText = output;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Sum of number in String</h1>
+    <input type="text" id="String" placeholder="Enter the String" />
+
+    <button onclick="handleString()">Calculate Sum</button>
+
+    <p id="output">OUTPUT</p>
+  </body>
+</html>

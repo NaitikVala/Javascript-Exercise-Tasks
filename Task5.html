@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function generatefibonacci() {
+        let number = document.getElementById("number").value;
+        number = parseInt(number);
+
+        if (isNaN(number) || number <= 0) {
+          document.getElementById("output").innerText = "Enter Valid number";
+          return;
+        }
+
+        let a = 0,
+          b = 1,
+          c;
+        let result = "";
+
+        for (let i = 0; i < number; i++) {
+          result += a + " ";
+          c = a + b;
+          a = b;
+          b = c;
+        }
+        document.getElementById("output").innerText = result;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Fibonacci series</h1>
+    <input type="number" id="number" placeholder="Enter the number" />
+    <button onclick="generatefibonacci()">Click</button>
+    <p id="output">OUTPUT</p>
+  </body>
+</html>
